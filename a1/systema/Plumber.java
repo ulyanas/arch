@@ -1,6 +1,6 @@
 package systema;
-
-import filters.*;
+import filters.AltitudeFilter;
+import filters.TemperatureFilter;
 
 /******************************************************************************************************************
 * File:Plumber.java
@@ -31,22 +31,28 @@ public class Plumber
 		****************************************************************************/
 
 		SourceFilter Filter1 = new SourceFilter();
-		SinkFilter Filter2 = new SinkFilter();
+		TemperatureFilter Filter2 = new TemperatureFilter();
+		AltitudeFilter Filter3 = new AltitudeFilter();
+		SinkFilter Filter4 = new SinkFilter();
 
 		/****************************************************************************
 		* Here we connect the filters starting with the sink filter (Filter 1) which
 		* we connect to Filter2 the middle filter. Then we connect Filter2 to the
 		* source filter (Filter3).
 		****************************************************************************/
-
+		Filter4.Connect(Filter3);
+		Filter3.Connect(Filter2); // This essentially says, "connect Filter3 input port to Filter2 output port
+		Filter2.Connect(Filter1); // This essentially says, "connect Filter2 input port to Filter1 output port
 		
 		/****************************************************************************
 		* Here we start the filters up. All-in-all,... its really kind of boring.
 		****************************************************************************/
 
 		Filter1.start();
-		Filter2.connect(Filter1);
+		Filter2.start();
+		Filter3.start();
+		Filter4.start();
 
-   } // main
+   } 
 
-} // Plumber
+} 

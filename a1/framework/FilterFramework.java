@@ -1,3 +1,4 @@
+package framework;
 /******************************************************************************************************************
 * File:FilterFramework.java
 * Course: 17655
@@ -34,7 +35,6 @@
 *
 ******************************************************************************************************************/
 
-package framework;
 import java.io.*;
 
 public class FilterFramework extends Thread
@@ -65,7 +65,7 @@ public class FilterFramework extends Thread
 	*
 	****************************************************************************/
 
-	class EndOfStreamException extends Exception {
+	public class EndOfStreamException extends Exception {
 		
 		static final long serialVersionUID = 0; // the version for serializing
 
@@ -91,7 +91,7 @@ public class FilterFramework extends Thread
 	*
 	****************************************************************************/
 
-	void Connect( FilterFramework Filter )
+	public void Connect( FilterFramework Filter )
 	{
 		try
 		{
@@ -104,7 +104,7 @@ public class FilterFramework extends Thread
 
 		catch( Exception Error )
 		{
-			System.out.println( "\n" + this.getName() + " FilterFramework error connecting::"+ Error );
+			//System.out.println( "\n" + this.getName() + " FilterFramework error connecting::"+ Error );
 
 		} // catch
 
@@ -196,7 +196,6 @@ public class FilterFramework extends Thread
 	* Arguments:
 	* 	byte datum - This is the byte that will be written on the output port.of
 	*	the filter.
-	*   output Ð output port name
 	*
 	* Returns: void
 	*
@@ -276,7 +275,7 @@ public class FilterFramework extends Thread
 			OutputWritePort.close();
 
 		}
-		catch( Exception Error )
+		catch ( Exception Error )
 		{
 			System.out.println( "\n" + this.getName() + " ClosePorts error::" + Error );
 

@@ -1,5 +1,4 @@
-package filters;
-
+package systema;
 /******************************************************************************************************************
 * File:SourceFilter.java
 * Course: 17655
@@ -24,26 +23,16 @@ import java.io.*; // note we must add this here since we use BufferedReader clas
 import framework.FilterFramework;
 
 public class SourceFilter extends FilterFramework
-
 {
-	public class FilterFramework {
-
-	}
-
-	//  default input file name
-    private String fileName = "FlightData.dat";
-    
 	public void run()
     {
-		// Number of bytes read from the input file.
-		int bytesread = 0;		
-		// Number of bytes written to the stream.
-		int byteswritten = 0;	
-		// File stream reference.
-		DataInputStream in = null;	
-		// The byte of data read from the file
-		byte databyte = 0;	
-		
+
+		String fileName = "FlightData.dat";	// Input data file.
+		int bytesread = 0;					// Number of bytes read from the input file.
+		int byteswritten = 0;				// Number of bytes written to the stream.
+		DataInputStream in = null;			// File stream reference.
+		byte databyte = 0;					// The byte of data read from the file
+
 		try
 		{
 			/***********************************************************************************
@@ -51,7 +40,7 @@ public class SourceFilter extends FilterFramework
 			***********************************************************************************/
 
 			in = new DataInputStream(new FileInputStream(fileName));
-			System.out.println("\n" + this.getName() + "::Source reading file..." );
+			//System.out.println("\n" + this.getName() + "::Source reading file..." );
 
 			/***********************************************************************************
 			*	Here we read the data from the file and send it out the filter's output port one
@@ -76,12 +65,12 @@ public class SourceFilter extends FilterFramework
 
 		catch ( EOFException eoferr )
 		{
-			System.out.println("\n" + this.getName() + "::End of file reached..." );
+			//System.out.println("\n" + this.getName() + "::End of file reached..." );
 			try
 			{
 				in.close();
 				ClosePorts();
-				System.out.println( "\n" + this.getName() + "::Read file complete, bytes read::" + bytesread + " bytes written: " + byteswritten );
+				//System.out.println( "\n" + this.getName() + "::Read file complete, bytes read::" + bytesread + " bytes written: " + byteswritten );
 
 			}
 		/***********************************************************************************
