@@ -34,6 +34,7 @@
 *
 ******************************************************************************************************************/
 
+package framework;
 import java.io.*;
 
 public class FilterFramework extends Thread
@@ -121,7 +122,7 @@ public class FilterFramework extends Thread
 	*
 	****************************************************************************/
 
-	byte ReadFilterInputPort() throws EndOfStreamException
+	public byte ReadFilterInputPort() throws EndOfStreamException
 	{
 		byte datum = 0;
 
@@ -195,6 +196,7 @@ public class FilterFramework extends Thread
 	* Arguments:
 	* 	byte datum - This is the byte that will be written on the output port.of
 	*	the filter.
+	*   output Ð output port name
 	*
 	* Returns: void
 	*
@@ -202,7 +204,7 @@ public class FilterFramework extends Thread
 	*
 	****************************************************************************/
 
-	void WriteFilterOutputPort(byte datum)
+	public void WriteFilterOutputPort(byte datum)
 	{
 		try
 		{
@@ -266,7 +268,7 @@ public class FilterFramework extends Thread
 	*
 	****************************************************************************/
 
-	void ClosePorts()
+	public void ClosePorts()
 	{
 		try
 		{

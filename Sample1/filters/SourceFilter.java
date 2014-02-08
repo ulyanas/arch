@@ -1,3 +1,4 @@
+package filters;
 /******************************************************************************************************************
 * File:SourceFilter.java
 * Course: 17655
@@ -19,6 +20,8 @@
 
 import java.io.*; // note we must add this here since we use BufferedReader class to read from the keyboard
 
+import framework.FilterFramework;
+
 public class SourceFilter extends FilterFramework
 {
 	public void run()
@@ -37,7 +40,7 @@ public class SourceFilter extends FilterFramework
 			***********************************************************************************/
 
 			in = new DataInputStream(new FileInputStream(fileName));
-			System.out.println("\n" + this.getName() + "::Source reading file..." );
+			//System.out.println("\n" + this.getName() + "::Source reading file..." );
 
 			/***********************************************************************************
 			*	Here we read the data from the file and send it out the filter's output port one
@@ -62,12 +65,12 @@ public class SourceFilter extends FilterFramework
 
 		catch ( EOFException eoferr )
 		{
-			System.out.println("\n" + this.getName() + "::End of file reached..." );
+			//System.out.println("\n" + this.getName() + "::End of file reached..." );
 			try
 			{
 				in.close();
 				ClosePorts();
-				System.out.println( "\n" + this.getName() + "::Read file complete, bytes read::" + bytesread + " bytes written: " + byteswritten );
+				//System.out.println( "\n" + this.getName() + "::Read file complete, bytes read::" + bytesread + " bytes written: " + byteswritten );
 
 			}
 		/***********************************************************************************

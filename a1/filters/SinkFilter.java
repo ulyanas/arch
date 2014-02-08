@@ -23,8 +23,12 @@
 * Internal Methods: None
 *
 ******************************************************************************************************************/
+package filters;
+
 import java.util.*;						// This class is used to interpret time words
 import java.text.SimpleDateFormat;		// This class is used to format and write time in a string format.
+
+import framework.FilterFramework;
 
 public class SinkFilter extends FilterFramework
 {

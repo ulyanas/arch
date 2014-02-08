@@ -1,3 +1,7 @@
+package systema;
+
+import filters.*;
+
 /******************************************************************************************************************
 * File:Plumber.java
 * Course: 17655
@@ -8,7 +12,7 @@
 *
 * Description:
 *
-* This class serves as an example to illstrate how to use the PlumberTemplate to create a main thread that
+* This class serves as an example to illustrate how to use the PlumberTemplate to create a main thread that
 * instantiates and connects a set of filters. This example consists of three filters: a source, a middle filter
 * that acts as a pass-through filter (it does nothing to the data), and a sink filter which illustrates all kinds
 * of useful things that you can do with the input stream of data.
@@ -27,8 +31,7 @@ public class Plumber
 		****************************************************************************/
 
 		SourceFilter Filter1 = new SourceFilter();
-		MiddleFilter Filter2 = new MiddleFilter();
-		SinkFilter Filter3 = new SinkFilter();
+		SinkFilter Filter2 = new SinkFilter();
 
 		/****************************************************************************
 		* Here we connect the filters starting with the sink filter (Filter 1) which
@@ -36,16 +39,13 @@ public class Plumber
 		* source filter (Filter3).
 		****************************************************************************/
 
-		Filter3.Connect(Filter2); // This esstially says, "connect Filter3 input port to Filter2 output port
-		Filter2.Connect(Filter1); // This esstially says, "connect Filter2 intput port to Filter1 output port
-
+		
 		/****************************************************************************
 		* Here we start the filters up. All-in-all,... its really kind of boring.
 		****************************************************************************/
 
 		Filter1.start();
-		Filter2.start();
-		Filter3.start();
+		Filter2.connect(Filter1);
 
    } // main
 
