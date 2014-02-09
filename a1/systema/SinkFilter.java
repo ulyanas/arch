@@ -27,8 +27,8 @@ package systema;
 import java.util.*;	
 import java.text.SimpleDateFormat;		// This class is used to format and write time in a string format.
 
-import framework.DataFormat;
-import framework.FilterFramework;
+import framework1.DataFormat;
+import framework1.FilterFramework;
 
 
 public class SinkFilter extends FilterFramework

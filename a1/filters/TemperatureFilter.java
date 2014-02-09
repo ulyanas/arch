@@ -1,8 +1,8 @@
 package filters;
 
 
-import framework.DataFormat;
-import framework.FilterFramework;
+import framework1.DataFormat;
+import framework1.FilterFramework;
 
 /******************************************************************************************************************
 * File:TemperatureFilter.java

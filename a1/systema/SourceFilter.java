@@ -20,7 +20,7 @@ package systema;
 
 import java.io.*; // note we must add this here since we use BufferedReader class to read from the keyboard
 
-import framework.FilterFramework;
+import framework1.FilterFramework;
 
 public class SourceFilter extends FilterFramework
 {
