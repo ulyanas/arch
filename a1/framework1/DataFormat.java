@@ -1,7 +1,7 @@
 package framework1;
 
 public class DataFormat {
-	
+
 	public final static int ID_LENGTH = 4;
     public final static int MEASUREMENT_LENGTH = 8;
     public final static int ID_TIME = 0;

@@ -1,4 +1,6 @@
 package systema;
+import java.io.IOException;
+
 import filters.AltitudeFilter;
 import filters.TemperatureFilter;
 
@@ -22,9 +24,9 @@ import filters.TemperatureFilter;
 * Internal Methods:	None
 *
 ******************************************************************************************************************/
-public class Plumber
+public class PlumberA
 {
-   public static void main( String argv[])
+   public static void main( String argv[]) throws IOException
    {
 		/****************************************************************************
 		* Here we instantiate three filters.
@@ -33,7 +35,7 @@ public class Plumber
 		SourceFilter Filter1 = new SourceFilter();
 		TemperatureFilter Filter2 = new TemperatureFilter();
 		AltitudeFilter Filter3 = new AltitudeFilter();
-		SinkFilter Filter4 = new SinkFilter();
+		SinkFilterA Filter4 = new SinkFilterA("OutputA.dat");
 
 		/****************************************************************************
 		* Here we connect the filters starting with the sink filter (Filter 1) which

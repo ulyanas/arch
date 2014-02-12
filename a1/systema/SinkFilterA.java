@@ -25,14 +25,36 @@ package systema;
 *
 ******************************************************************************************************************/
 import java.util.*;	
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;		// This class is used to format and write time in a string format.
 
 import framework1.DataFormat;
 import framework1.FilterFramework;
 
 
-public class SinkFilter extends FilterFramework
+public class SinkFilterA extends FilterFramework
 {
+	private File file;
+	private FileOutputStream fis;
+	private PrintStream out;
+	/**
+	 * Constructor
+	 * @param outputFileName The output file name
+	 * @throws IOException If the file cannot be opened or created
+	 */
+	public SinkFilterA(String outFileName) throws IOException {
+		
+		file = new File(outFileName); 
+		fis = new FileOutputStream(file);  
+		out = new PrintStream(fis); 
+		System.setOut(out); 
+	}
+
+	
 	public void run()
     {
 		/************************************************************************************
@@ -62,8 +84,8 @@ public class SinkFilter extends FilterFramework
 		*	First we announce to the world that we are alive...
 		**************************************************************/
 
-		//System.out.print( "\n" + this.getName() + "::Sink Reading\n");
-		System.out.print("Time: \t\t\t Temperature (C): \t Altitude (m):\n");
+		
+		System.out.print("Time: \t\t\t\t\t Temperature (C): \t\t Altitude (m):\n");
 		while (true)
 		{
 			try
@@ -76,14 +98,14 @@ public class SinkFilter extends FilterFramework
 				  if (flagTime && flagAltitude && flagTemperature) {
                
                       TimeStamp.setTimeInMillis(timestamp);
-                      System.out.printf("%s\t", TimeStampFormat.format(TimeStamp.getTime()));
+                      System.out.printf("%s\t\t ", TimeStampFormat.format(TimeStamp.getTime()));
                       flagTime = false;
 
-                      System.out.printf("%9.5f\t", temperature);
+                      System.out.printf("%9.5f\t\t\t\t ", temperature);
 
                       flagTemperature = false;
 
-                      System.out.printf("%5.5f\t", altitude);
+                      System.out.printf("%5.5f", altitude);
                       flagAltitude = false;
 
                       System.out.printf("\n");
